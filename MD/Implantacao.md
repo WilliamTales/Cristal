@@ -1,0 +1,11 @@
+1. Workspace;
+2. Contato;
+3. Campo de contato _Atividade no chat_;
+4. Grupo dinâmico _Visitante_;
+5. Grupo dinâmico _Atendimento humano_;
+6. Adicionar inteligência _Farewell & Greetings_ *Bearer 489f2618-03d6-4e5e-81ce-92e06b5e52c2*;
+7. Adicionar canal _WEB_;
+8. Adicionar idioma primário _Português_;
+9. Excluir fluxos _Sample_;
+10. Importar JSON template;
+11. Atualizar constantes globais;
