@@ -1,6 +1,15 @@
-﻿# Cristal
+﻿# <p style="font-size:100px; text-align:center;"> Cristal </p>
 
-![](img/Documentação%20de%20fluxos.001.png)
+<img align="right" src="img/Documentação%20Fluxos%20Cristal.009.png" width="200"/>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
 
 **Documentação dos Fluxos**
 
@@ -135,17 +144,21 @@
 [- RocketChat - Finalizar atendimento](#-%20RocketChat%20-%20Finalizar%20atendimento)
 
 # Legenda
-1. Em negrito → Título de função, campo de contato, parâmetro ou valor salvo.
-1. Em itálico → Função, ferramenta ou parâmetro da plataforma.
-1. Sublinhado → Nome de fluxo.
-1. Negrito e itálico → Valor de um campo.
+1. **Em negrito** → Título de função, campo de contato, parâmetro ou valor salvo.
+1. *Em itálico* → Função, ferramenta ou parâmetro da plataforma.
+1. <u>Sublinhado</u> → Nome de fluxo.
+1. ***Negrito e itálico*** → Valor de um campo.
+1. <text style="color:green;">**Intenção**</text> → Intenção no Bothub.
+1. <text style="color:lightgreen;">**Entidade**</text> → Entidade no Bothub.
 
 # 1 - Regras de negócio
-Este é um template de chatbot inteligente para assistência financeira. Para isto, o único ERP utilizado é o [SIENGE](https://api.sienge.com.br/docs/). Para o fornecimento de informações financeiras, como segunda via e consulta de parcelas, utiliza-se como regra de negócio o intervalo de tempo entre o *mês atual, dois meses atrás e dois meses à frente*, totalizando cinco meses. O usuário final poderá acessar somente os dados que estejam nesse intervalo de tempo.
-
-Para iniciar qualquer consulta ou solicitar segunda via, o usuário passa por um credenciamento através de seu CPF ou CNPJ e precisa ter um número de telefone atualizado na plataforma SIENGE, visto que a verificação ocorre por meio da confirmação dos 4 últimos dígitos do número cadastrado. É importante ressaltar que nenhum código é enviado por SMS ou e-mail, visando melhorar a experiência do usuário mantendo o canal.
-
+<p style="text-align: justify;">
+Este é um template de chatbot inteligente para assistência financeira. Para isto, o único ERP utilizado é o [SIENGE](https://api.sienge.com.br/docs/). Para o fornecimento de informações financeiras, como segunda via e consulta de parcelas, utiliza-se como regra de negócio o intervalo de tempo entre o *mês atual, dois meses atrás e dois meses à frente*, totalizando cinco meses. O usuário final poderá acessar somente os dados que estejam nesse intervalo de tempo. </p>
+<p style="text-align: justify;">
+Para iniciar qualquer consulta ou solicitar segunda via, o usuário passa por um credenciamento através de seu CPF ou CNPJ e precisa ter um número de telefone atualizado na plataforma SIENGE, visto que a verificação ocorre por meio da confirmação dos 4 últimos dígitos do número cadastrado. É importante ressaltar que nenhum código é enviado por SMS ou e-mail, visando melhorar a experiência do usuário mantendo o canal.</p>
+<p style="text-align: justify;">
 Para o usuário ser direcionado ao atendimento humano, pede-se o nome completo, o número de contato e o e-mail cadastrado, sendo o e-mail a única informação obrigatória para o direcionamento ao atendente. Desta forma, deve-se atentar ao cadastro do usuário no SIENGE para evitar frustrações.
+</p> 
 
 # 2 - Evoluções
 Alguns cenários não são tratados nesse template, abaixo algumas ideias para melhorar a usabilidade:
@@ -170,77 +183,75 @@ Para este projeto, observe as constantes globais e preencha corretamente. São e
 - Três constantes globais do Rocketchat e duas constantes globais da Organização:
 
 ![](img/Documentação%20Fluxos%20Cristal.003.png)
-# 4 - Triggers
-São utilizados dois tipos**,** *keyword*** e** *uncaught message*:
 
-- _Keyword **iniciarchat**_**:** inicia o fluxo Boas vindas;
-- *uncaught message*, restrito ao grupo ***Atendimento humano***: direcionar mensagens quando o contato estiver sendo atendido no Rocketchat;
-- *uncaught message***:** direcionar mensagens para Nova mensagem para início de tratamento.
+# 4 - Triggers
+São utilizados dois tipos, ***keyword*** e ***uncaught message***:
+
+- *Keyword* ***iniciarchat***: inicia o fluxo Boas vindas;
+- *Uncaught message*, restrito ao grupo ***Atendimento humano***: direcionar mensagens quando o contato estiver sendo atendido no Rocketchat;
+- *Uncaught message*: direcionar mensagens para <u>Nova mensagem</u> para início de tratamento.
 
 
 # 5 - Campos de contato
-## 1 - Mensagem
+## a. Mensagem
 Salva a mensagem enviada pelo usuário a fim de reutilizar em filtros e chamadas externas.
-## 2 - Atividade
+## b. Atividade
 Atualizado de acordo com a ação/estágio no qual o contato* se encontra.
-## 3 - Atividade no chat
-Status do contato.
-
+## c. Atividade no chat
+Status do contato.  
 - Visitante: Conversando com o bot
 - Atendimento humano: Conversando com um atendente.
-## 4 - Código da sala
+## d. Código da sala
 Salva o identificador de salas no Rocketchat.
-## 5 - Departamento
+## e. Departamento
 Classificação de atendimento para o Rocketchat.
-## 6 - Documento
+## f. Documento
 Salva o CPF ou CNPJ do cliente.
-## 7 - Finalidade
+## g. Finalidade
 Classificação de atendimento para o Rocketchat.
-## 8 - ID do cliente
+## h. ID do cliente
 Identificador do cadastro do cliente no SIENGE.
-## 9 - Privacidade
+## i. Privacidade
 Limpa os dados do contato e salva como anônimo.
-## 10 - Telefone
+## j. Telefone
 Salva um número de telefone do cliente como padrão para consulta e validação.
-## 11 - Título
+## k. Título
 Salva o identificador do título.
-## 12 - Último login
+## l. Último login
 Salva um timestamp da última vez que o cliente passou pelo fluxo de credenciamento.
 
 # 6 - Fluxos e Fluidez
-## 1 - Nova mensagem
-A mensagem enviada no chat é salva no *campo de contato* **Mensagem** e verifica-se a condição para um novo contato* ou retorno (por agrupamento dinâmico usando o *campo de contato* **Atividade no chat**).
+## - Nova mensagem
+A mensagem enviada no chat é salva no *campo de contato* **Mensagem** e verifica-se a condição para um novo contato* ou retorno (por *grupo dinâmico* usando o *campo de contato* **Atividade no chat**).
 
-Se o usuário for visitante a mensagem é salva direcionada para tratamento no fluxo de Classificação. Caso o usuário não seja visitante será direcionado para o fluxo de Boas vindas para mensagem de apresentação da assistente.
+Se o usuário for ***visitante*** a mensagem é salva e direcionada para tratamento no fluxo <u>Classificação</u>. Caso contrário será direcionado para o fluxo <u>Boas vindas</u> para configuração do contato e recebimento da mensagem de apresentação.
 
-## 2 - Boas vindas
+## - Boas vindas
 Fluxo inicial de apresentação/boas vindas onde:
 
-- Contato é atualizado como ***Visitante*** (a mensagem de apresentação da assistente não repetirá se o usuário for ***visitante***);
-- Direcionado para o fluxo Menu principal.
+- Contato é atualizado como ***visitante*** (a mensagem de apresentação não repetirá após o contato se tornar um ***visitante***);
+- Direcionado para o fluxo <u>Menu principal</u>.
 
-## 3 - Cumprimentos e despedidas
+## - Cumprimentos e despedidas
 Fluxo chama a inteligência ***Cumprimentos e saudações***. Para evitar erros de intenção usa-se a confidência em 90%. O repositório utilizado está disponível [neste link](https://bothub.it/dashboard/ilhasoft/farewellgreetings).
 
 Se o usuário cumprimentar, será respondido de acordo com o horário. Se o usuário se despedir será direcionado ao encerramento do chat.
 
-## 4 - Menu principal
+## - Menu principal
 Fluxo que envia as opções disponíveis. Há um filtro por *canal* que possibilita o envio distinto em canais que não possuam *quick-reply* (whatsapp e sms).
 
 ## 5 - Algo mais
-Este fluxo é chamado ao final do fluxo de Classificação para verificar se o usuário tem mais alguma solicitação. 
-
-- Primeiro verifica-se a **atividade** do usuário para evitar envio de mensagens caso o usuário final tenha demonstrado interesse em encerrar o chat. Dessa forma, se **atividade** for ***fim***, apagamos a **atividade** e qualquer outra mensagem reinicia o processo pelo fluxo nova mensagem.
-- Se a **atividade** não for ***fim,*** é apresentado novamente as opções disponíveis.
+Este fluxo é chamado ao final do fluxo <u>Classificação</u> para verificar se o usuário tem mais alguma solicitação. 
+Primeiro verifica-se **atividade** para evitar envio de mensagens caso o contato tenha demonstrado interesse em encerrar o chat. Dessa forma, se **atividade** for ***fim***, apagamos a **atividade** e qualquer outra mensagem reinicia o processo pelo fluxo <u>nova mensagem</u>. caso contrário é apresentado novamente as opções disponíveis.
 
 ## 6 - Inatividade
 Fluxo que encerra atendimento por inatividade no chat. Se o usuário final estiver conversando pela web, quando chegar neste passo:
 
-- Será apagado os dados do **id do cliente** e **título**, forçando-o a refazer o login/credenciamento para outras solicitações;
+- Será apagado os dados **id do cliente** e **título**, forçando-o a refazer o login/credenciamento para outras solicitações;
 - A **atividade** será atualizada como ***fim*** para evitar envio de mensagens posteriores caso o usuário final não tenha completado o fluxo.
 
 ## 7 - Encerramento
-Este fluxo envia mensagem de finalização do atendimento por *divisão por chance aleatória* e seta a **atividade** como ***fim*** para evitar envio de outras mensagens ao usuário final que demonstrou interesse em encerrar o chat.
+Este fluxo envia mensagem de finalização do atendimento usando *split by random chance* e atualiza **atividade** como ***fim*** para evitar envio de outras mensagens visto que há interesse em encerrar o chat.
 
 ## 8 - Baixa convicção
 Este fluxo dá um feedback ao usuário se a mensagem estiver com baixa confidência ou for para a intenção “bias”. É enviado um e-mail para o cliente com a mensagem não entendida para ser tratada e o usuário é direcionado ao fluxo Atendimento humano.
