@@ -1,19 +1,12 @@
-﻿# <p style="font-size:100px; text-align:center;"> Cristal </p>
+﻿<p style="font-size:100px; text-align:center;"> Cristal </p>
 
-<img align="right" src="img/Documentação%20Fluxos%20Cristal.009.png" width="200"/>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-
+---
 
 **Documentação dos Fluxos**
 
 > Chatbot inteligente criado por Weni.
+
+<img align="right" src="img/Documentação%20Fluxos%20Cristal.009.png" width="200"/>
 
 ## Sumário
 
